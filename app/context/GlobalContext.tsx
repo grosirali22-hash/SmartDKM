@@ -10,6 +10,8 @@ interface Config {
   isSidebarCollapsed?: boolean;
   isMobileMenuOpen?: boolean;
   is_dark_mode?: boolean;
+  tema_warna?: string;
+  is_soft_ui?: boolean;
   display_layout?: 'default' | 'website';
 }
 
@@ -36,6 +38,8 @@ export const GlobalContext = createContext<GlobalContextType>({
     alamat: 'Sukabumi, Jawa Barat',
     isSidebarCollapsed: false,
     is_dark_mode: false,
+    tema_warna: 'default',
+    is_soft_ui: false,
     display_layout: 'default',
   },
   setConfig: () => {},
@@ -51,6 +55,8 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
     alamat: 'Sukabumi, Jawa Barat',
     isSidebarCollapsed: false,
     is_dark_mode: false,
+    tema_warna: 'default',
+    is_soft_ui: false,
     display_layout: 'default',
   });
   const [user, setUser] = useState<any>(null);
