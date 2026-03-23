@@ -1,0 +1,22 @@
+{
+  "name": "Smart DKM - Manajemen Masjid",
+  "short_name": "SmartDKM",
+  "description": "Sistem Informasi Manajemen DKM Masjid Terintegrasi",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "any",
+  "scope": "/",
+  "categories": ["utilities", "productivity"],
+  "screenshots": [],
+  "lang": "id-ID"
+}

@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Default: Nexus Light Theme */
+  :root {
+    --background: 210 40% 98%; /* slate-50 #f8fafc */
+    --foreground: 222.2 84% 4.9%; /* slate-950 #020617 */
+    --card: 0 0% 100%; /* white #ffffff */
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%; /* blue-600 #2563eb */
+    --primary-foreground: 210 40% 98%; /* slate-50 #f8fafc */
+    --secondary: 214 100% 97%; /* blue-50 #eff6ff */
+    --secondary-foreground: 221.2 83.2% 53.3%; /* blue-600 #2563eb */
+    --accent: 214 100% 97%; /* blue-50 */
+    --accent-foreground: 221.2 83.2% 53.3%; /* blue-600 */
+    --muted: 210 40% 96.1%; /* slate-100 #f1f5f9 */
+    --muted-foreground: 215.4 16.3% 46.9%; /* slate-500 #64748b */
+    --border: 214.3 31.8% 91.4%; /* slate-200 #e2e8f0 */
+    --ring: 221.2 83.2% 53.3%; /* blue-600 #2563eb */
+    --radius: 0.75rem;
+  }
+
+  /* Default Dark Mode (Nexus Dark) */
+  .dark {
+    --background: 222.2 84% 4.9%; /* slate-950 */
+    --foreground: 210 40% 98%; /* slate-50 */
+    --card: 222.2 84% 6%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%; /* blue-500 */
+    --primary-foreground: 222.2 47.4% 1.2%; /* very dark */
+    --secondary: 217.2 32.6% 17.5%; /* slate-800 */
+    --secondary-foreground: 210 40% 98%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217.2 32.6% 17.5%;
+    --ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Force Dark Mode on Components Folder without editing files */
+  .dark .bg-white { background-color: hsl(var(--card)) !important; border-color: hsl(var(--border)) !important; }
+  .dark .text-slate-800, .dark .text-slate-900, .dark .text-slate-700 { color: hsl(var(--foreground)) !important; }
+  .dark .text-slate-500, .dark .text-slate-400 { color: hsl(var(--muted-foreground)) !important; }
+  .dark .border-slate-50, .dark .border-slate-100, .dark .border-slate-200 { border-color: hsl(var(--border)) !important; }
+  .dark .bg-slate-50 { background-color: hsl(var(--muted)) !important; }
+  .dark .bg-slate-100 { background-color: hsl(var(--secondary)) !important; }
+
+  /* Meredupkan Card Aktif / Keterangan (bg-emerald-50, dll) di Mode Gelap */
+  .dark .bg-emerald-50, .dark .bg-green-50, .dark .bg-teal-50 { background-color: rgba(16, 185, 129, 0.1) !important; }
+  .dark .bg-blue-50, .dark .bg-sky-50 { background-color: rgba(59, 130, 246, 0.1) !important; }
+  .dark .bg-amber-50, .dark .bg-orange-50 { background-color: rgba(245, 158, 11, 0.1) !important; }
+  .dark .bg-rose-50, .dark .bg-red-50 { background-color: rgba(244, 63, 94, 0.1) !important; }
+  .dark .bg-indigo-50 { background-color: rgba(99, 102, 241, 0.1) !important; }
+  .dark .bg-purple-50 { background-color: rgba(168, 85, 247, 0.1) !important; }
+
+  /* Menyesuaikan Teks Keterangan agar tetap kontras di Card Gelap */
+  .dark .text-emerald-800, .dark .text-emerald-700, .dark .text-green-800, .dark .text-green-700 { color: #34d399 !important; }
+  .dark .text-blue-800, .dark .text-blue-700, .dark .text-sky-800, .dark .text-sky-700 { color: #60a5fa !important; }
+  .dark .text-amber-800, .dark .text-amber-700, .dark .text-orange-800, .dark .text-orange-700 { color: #fbbf24 !important; }
+  .dark .text-rose-800, .dark .text-rose-700, .dark .text-red-800, .dark .text-red-700 { color: #fb7185 !important; }
+  .dark .text-indigo-800, .dark .text-indigo-700 { color: #818cf8 !important; }
+  .dark .text-purple-800, .dark .text-purple-700 { color: #c084fc !important; }
+
+  /* Menyesuaikan Border Halus Keterangan di Card Gelap */
+  .dark .border-emerald-100, .dark .border-green-100 { border-color: rgba(16, 185, 129, 0.2) !important; }
+  .dark .border-blue-100, .dark .border-sky-100 { border-color: rgba(59, 130, 246, 0.2) !important; }
+  .dark .border-amber-100, .dark .border-orange-100 { border-color: rgba(245, 158, 11, 0.2) !important; }
+  .dark .border-rose-100, .dark .border-red-100 { border-color: rgba(244, 63, 94, 0.2) !important; }
+  .dark .border-indigo-100 { border-color: rgba(99, 102, 241, 0.2) !important; }
+  .dark .border-purple-100 { border-color: rgba(168, 85, 247, 0.2) !important; }
+
+  /* Menyesuaikan Tombol Asli (Primary, Outline) Tanpa Mengubah Folder Components */
+  .dark button[class*="bg-slate-900"], .dark a[class*="bg-slate-900"] {
+    background-color: hsl(var(--foreground)) !important;
+    color: hsl(var(--background)) !important;
+  }
+  .dark button[class*="hover:bg-slate-700"]:hover, .dark a[class*="hover:bg-slate-700"]:hover {
+    background-color: hsl(var(--foreground) / 0.9) !important;
+  }
+  .dark button[class*="text-slate-600"], .dark a[class*="text-slate-600"] {
+    color: hsl(var(--foreground)) !important;
+  }
+  .dark button.bg-transparent[class*="border-slate-200"]:hover {
+    background-color: hsl(var(--border)) !important;
+  }
+
+}
+
+@layer utilities {
+  .bg-pattern {
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      currentColor 1px,
+      transparent 0
+    );
+    background-size: 40px 40px;
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-white/20;
+  }
+
+  .theme-transition {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  /* Reduce Global Shadows as requested */
+  .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05) !important;
+  }
+  .dark .shadow-sm, .dark .shadow-md, .dark .shadow-lg, .dark .shadow-xl, .dark .shadow-2xl {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 0.2) !important; /* Soft deep shadow for dark mode */
+  }
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.no-radius {
+  border-radius: 0 !important;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-out infinite;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
