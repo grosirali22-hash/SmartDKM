@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Badge from './ui/Badge';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 
 interface PHBICardProps {
   nama: string;
@@ -8,7 +9,7 @@ interface PHBICardProps {
 }
 
 export default function PHBICard({ nama, tanggalTarget }: PHBICardProps) {
-  const { config } = useGlobalContext();
+  const { config } = useGlobalContext() as { config: GlobalConfig };
   const isNeumorph = config.tema_warna === 'neumorph';
   const [sisaHari, setSisaHari] = useState<number | null>(null);
 

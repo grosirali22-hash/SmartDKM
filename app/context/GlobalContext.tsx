@@ -2,30 +2,11 @@
 
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '../lib/supabase';
+import { GlobalConfig, Profile } from '../types/config';
 
-interface Config {
-  nama_masjid: string;
-  running_text: string;
-  alamat?: string;
-  isSidebarCollapsed?: boolean;
-  isMobileMenuOpen?: boolean;
-  is_dark_mode?: boolean;
-  tema_warna?: string;
-  is_soft_ui?: boolean;
-  display_layout?: 'default' | 'website';
-}
-
-interface Profile {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  avatar_url?: string;
-}
-
-interface GlobalContextType {
-  config: Config;
-  setConfig: React.Dispatch<React.SetStateAction<Config>>;
+export interface GlobalContextType {
+  config: GlobalConfig;
+  setConfig: React.Dispatch<React.SetStateAction<GlobalConfig>>;
   user: any;
   profile: Profile | null;
   refreshProfile: () => Promise<void>;
@@ -49,7 +30,7 @@ export const GlobalContext = createContext<GlobalContextType>({
 });
 
 export function GlobalProvider({ children }: { children: React.ReactNode }) {
-  const [config, setConfig] = useState<Config>({
+  const [config, setConfig] = useState<GlobalConfig>({
     nama_masjid: 'Masjid Al-Istiqomah',
     running_text: 'Selamat Datang di Masjid Al-Istiqomah...',
     alamat: 'Sukabumi, Jawa Barat',
@@ -116,7 +97,7 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
           filter: 'id=eq.1' 
         },
         (payload) => {
-          setConfig((prev) => ({ ...prev, ...(payload.new as Config) }));
+          setConfig((prev) => ({ ...prev, ...(payload.new as GlobalConfig) }));
         }
       )
       .subscribe();

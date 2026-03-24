@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 import Card from './ui/Card';
 import Input from './ui/Input';
 import Button from './ui/Button';
@@ -23,7 +24,7 @@ export default function InputKeuangan({ tipe = 'debit', onSimpan, onRefresh }: I
     setKeterangan('');
   };
 
-  const { config } = useGlobalContext();
+  const { config } = useGlobalContext() as { config: GlobalConfig };
   const isNeumorph = config.tema_warna === 'neumorph';
 
   return (

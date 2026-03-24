@@ -1,5 +1,5 @@
-import React from 'react';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 
 interface KajianItemProps {
   hari: string;
@@ -10,7 +10,7 @@ interface KajianItemProps {
 }
 
 export default function KajianItem({ hari, jam, ustadz, kitab, judul }: KajianItemProps) {
-  const { config } = useGlobalContext();
+  const { config } = useGlobalContext() as { config: GlobalConfig };
   const isNeumorph = config.tema_warna === 'neumorph';
 
   return (

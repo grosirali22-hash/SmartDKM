@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 import { supabase } from '../lib/supabase';
 
 interface RunningTextProps {
@@ -9,7 +10,7 @@ interface RunningTextProps {
 }
 
 export default function RunningText({ teks }: RunningTextProps) {
-  const { config } = useGlobalContext();
+  const { config } = useGlobalContext() as { config: GlobalConfig };
   const isNeumorph = config.tema_warna === 'neumorph';
   const [activeTexts, setActiveTexts] = useState<string>('');
 

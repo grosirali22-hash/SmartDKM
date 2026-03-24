@@ -1,5 +1,5 @@
-import React from 'react';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 
 interface HeaderMasjidProps {
   nama?: string;

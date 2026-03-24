@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Timer } from 'lucide-react';
 import { useGlobalContext } from '../context/GlobalContext';
+import { GlobalConfig } from '../types/config';
 
 interface PrayerCountdownProps {
   targetTime: string; // "HH:MM"
@@ -12,7 +13,7 @@ interface PrayerCountdownProps {
 
 export default function PrayerCountdown({ targetTime, targetLabel, className }: PrayerCountdownProps) {
   const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number } | null>(null);
-  const { config } = useGlobalContext();
+  const { config } = useGlobalContext() as { config: GlobalConfig };
   const isNeumorph = config.tema_warna === 'neumorph';
 
   useEffect(() => {
