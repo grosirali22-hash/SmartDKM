@@ -18,12 +18,15 @@ export const metadata: Metadata = {
   title: 'Smart DKM',
   description: 'Sistem Informasi Manajemen DKM Masjid',
   manifest: '/manifest.json',
-  themeColor: '#0f172a',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: 'Smart DKM',
   },
+}
+
+export const viewport = {
+  themeColor: '#0f172a',
 }
 
 export default function RootLayout({
